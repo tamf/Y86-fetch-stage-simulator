@@ -441,49 +441,6 @@ int main(int argc, char **argv) {
   // if PC strictly exceeds length of file, normal termination
   printf("Normal termination\n");
   exit(0);
-  
-//#define EXAMPLESON 1
-#ifdef  EXAMPLESON
-
-
-
-  // The next few lines are examples of various types of output. In the comments is 
-  // an instruction, the address it is at and the associated binary code that would
-  // be found in the object code file at that address (offset). Your program 
-  // will read that binary data and then pull it appart just like the fetch stage. 
-  // Once everything has been pulled apart then a call to printReg is made to 
-  // have the output printed. Read the comments in printInternalReg.c for what the 
-  // various arguments are and how they are to be used. 
-  
-  /************************************************* 
-     irmovq $1, %rsi   0x008: 30f60100000000000000
-  ***************************************************/
-
-  printReg(8, 3, 0, 1, 15, 6, 1,  1, 01, 0, 0, 0, 0, 0, 0, 0, 8+10, "irmovq");
-
-    /************************************************* 
-     je target   x034: 733f00000000000000     Note target is a label
-
-     ***************************************************/
-  printReg(0x34, 7, 3, 0, 15, 0xf, 1, 0x3f, 0x3f, 0, 0, 0, 0, 0, 0, 0, 0x34 + 9, "je");
-
-
-    /************************************************* 
-     nop  x03d: 10    
-
-     ***************************************************/
-  printReg(0x3d, 1, 0, 0, 15, 0xf, 0, 0x3f, 0x3f, 0, 0, 0, 0, 0, 0, 0, 0x3e + 1, "nop");
-
-
-
-    /************************************************* 
-     addq %rsi,%rdx  0x03f: 6062 
-
-     ***************************************************/
-  printReg(0x3f, 0, 0, 0, 6, 2, 0, 0x3f, 0x3f, 0, 0, 0, 0, 0, 0, 0, 0x3f + 1, "halt");
-
-
-#endif
 
   return SUCCESS;
 
